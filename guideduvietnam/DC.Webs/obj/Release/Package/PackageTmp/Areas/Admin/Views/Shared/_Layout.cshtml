@@ -1,0 +1,187 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.BaseViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Quản trị hệ thống</title>
+    <!-- Bootstrap -->
+    <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="/assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="/assets/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="/assets/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="/Content/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap-upload/bootstrap-fileupload.min.css" />
+
+    <!-- jQuery -->
+    <script src="/assets/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/bootstrap-upload/bootstrap-fileupload.js"></script>
+    <script src="/content/js/library/jquery.number.js"></script>
+    <script src="/content/js/library/jquery.cookie.js"></script>
+    <script src="/content/js/library/jquery.validate.min.js"></script>
+    <script src="/content/js/library/knockout-latest.js"></script>
+    <script src="/content/js/library/knockout.validation.js"></script>
+    <script src="/content/js/library/jquery.ui.widget.js"></script>
+    <script src="/content/js/library/jquery.fileupload.js"></script>
+    <script src="/Content/js/library/accounting.min.js"></script>
+    <script src="/Content/js/library/constant.js"></script>
+    <script src="/content/js/library/global.js"></script>
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/Admin/Dashboard" class="site_title"><i class="fa fa-paw"></i> <span>Quản trị!</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    @if (Model != null && Model.CurrentUser != null)
+                    {
+                        <!-- menu profile quick info -->
+                        @Html.Partial("_ProfileInfo")
+                        <!-- /menu profile quick info -->
+                    }
+
+                    <br />
+                    <div class="clearfix"></div>
+                    <!-- sidebar menu -->
+                    @if (Model != null && Model.CurrentUser != null)
+                    {
+                        @Html.Partial("_AdminAsideItems")                        
+                    }
+
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="/Admin/Login/SingOut">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            @if (Model != null && Model.CurrentUser != null)
+            {
+                <!-- top navigation -->
+                @Html.Partial("_TopNavigation")
+                <!-- /top navigation -->
+            }
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                @RenderBody()
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Congnghiepxd@gmail.com - Bootstrap Admin Template by <a href="#">Nghiepdc</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    @Html.Partial("_PopupError")
+    @Html.Partial("_PopupProcess")
+    @if (TempData["MessageSuccess"] != null)
+    {
+        <div id="custom_notifications" class="custom-notifications">
+            <div id="notif-group" class="tabbed_notifications">
+                <div id="ntf10" class="text text alert-success" style="">
+                    <h2>
+                        <i class="fa fa-bell"></i>
+                        Thông báo
+                    </h2>
+                    <div class="close">
+                        <a class="notification_close" href="javascript:;">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                    <p>@TempData["MessageSuccess"]</p>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["MessageError"] != null)
+    {
+        <div id="custom_notifications" class="custom-notifications">
+            <div id="notif-group" class="tabbed_notifications">
+                <div id="ntf10" class="text alert-error" style="">
+                    <h2>
+                        <i class="fa fa-bell"></i>
+                        Thông báo
+                    </h2>
+                    <div class="close">
+                        <a class="notification_close" href="javascript:;">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                    <p>@TempData["MessageError"]</p>
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <!-- Bootstrap -->
+    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- NProgress -->
+    <script src="/assets/nprogress/nprogress.js"></script>
+
+    <!-- bootstrap-progressbar -->
+    <script src="/assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="/assets/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="/assets/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="/assets/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/assets/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="/Content/js/moment/moment.min.js"></script>
+    <script src="/Content/js/datepicker/daterangepicker.js"></script>
+
+    <script src="/assets/jquery.tagsinput/jquery.tagsinput.js"></script>
+    <!-- Select2 -->
+    <script src="/assets/select2/dist/js/select2.full.min.js"></script>
+    <!-- bootstrap upload -->
+    <!-- Custom Theme Scripts -->
+    <script src="/Content/js/custom.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).on('click', '.notification_close', function (e) {
+            $('#custom_notifications').remove();
+        });
+    </script>
+</body>
+</html>

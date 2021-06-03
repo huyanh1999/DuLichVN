@@ -1,0 +1,80 @@
+﻿@model DC.Webs.Models.HomeViewModel
+@using DC.Webs.Common;
+@{
+    ViewBag.Title = Model.PostInfo.Title;
+    ViewBag.MetaKeyword = Model.PostInfo.MetaKeyword;
+    ViewBag.MetaDescription = Model.PostInfo.MetaDescription;
+    ViewBag.ImageUrl = System.Configuration.ConfigurationManager.AppSettings["Website"] + Model.PostInfo.Picture;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+    <section id="insArticlePage">
+        <div class="insBreadcrumb blog-breadcrumb">
+            <div class="container">
+                <div class="breadcrumb-wrap">
+                    <ol class="breadcrumb breadcrumb-arrow hidden-sm hidden-xs">
+
+                        <li><a href="/" target="_self">@Model.LableInfo.Home </a ></li>
+                        @if (Model.CategoryInfo != null)
+                        {
+                            <li><a href="/category/@Model.CategoryInfo.KeySlug" target="_self">@Model.CategoryInfo.Name</a> </li>
+                        }
+                        <li class="active"><span>@Model.PostInfo.Name</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="wrapperArticlePage">
+                <div class="row">
+                    <div class="col-md-9 col-sm-8 col-xs-12">
+                        <div class="insCtMain">
+                            <div class="main_article bg_w">
+                                <div class="head">
+                                    <h1>
+                                        @Model.PostInfo.Name
+                                    </h1>
+                                    <div class="info_edu">
+                                        <ul>
+                                            <li><i class="fa fa-book" aria-hidden="true"></i> @Model.PostInfo.CateName</li>
+                                            <li><div class="addthis_native_toolbox"></div> </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                                <div class="body-content">
+                                    @Html.Raw(Model.PostInfo.Content)
+                                </div>
+                                <div class="article_tags col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span class="tags_title"><i class="fa fa-tags"></i> Tags:</span>
+                                    <ul class="tag_list">
+                                        @foreach (var item in Model.TagItems)
+                                        {
+                                            <li>
+                                                <a href="/tag/@item.KeySlug">@item.Name</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                                @if (Model.PostInfo.IsComment)
+                                {
+                                    <div class="article_tags col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="fb-comments" data-href="@Request.Url.AbsoluteUri" data-width="100%" data-numposts="5"></div>
+                                    </div>
+                                }    
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 hidden-xs ba_sidebar">
+                        @{Html.RenderAction("PostTop", "Partial", new {type = CategoryConst.CATEGORYPOST});}
+
+                        @{Html.RenderAction("FanPageFb", "Partial");}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+

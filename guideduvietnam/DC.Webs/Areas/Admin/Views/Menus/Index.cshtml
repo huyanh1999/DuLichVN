@@ -1,0 +1,77 @@
+﻿@model DC.Webs.Models.MenuViewModel
+@{
+    ViewBag.Title = "Quản lý menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .select-menu {
+        float: left;
+    }
+    .select-menu select {
+        width: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+</style>
+<div class="">  
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title" id="SelectMenuType">
+                        <h2>
+                            Quản lý menu
+                        </h2>
+                        <div class="select-menu">
+                            <select class="select2_single form-control form-large search-select fl" id="MenuTypeId" name="MenuTypeId">
+                                @foreach (var item in Model.MenuTypeOptions)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                            @*<select class="select2_single form-control form-large search-select fl" id="MenuTypeId" name="MenuTypeId" data-bind="foreach: MenuTypeOptions, value: MenuTypeId">
+                                <option data-bind="text: Text, value: Value"></option>
+                            </select>*@
+                            
+                            <button type="submit" class="btn btn-default dropdown-toggle btn-filter fl" data-bind="click: SelectMenu">Chọn menu</button>
+                        </div>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="frmMenu">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>
+                            Thêm nội dung menu
+                        </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        @Html.Partial("_AddMenu")
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>
+                            Danh sách menu
+                        </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        @Html.Partial("_ListMenu")
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/Menus/MenuList.js"></script>
+

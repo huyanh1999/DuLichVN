@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Table>  
+  <Message ID="SIDEBAR_POSTNEW">
+    <en>New post</en>
+    <fr>Derniers articles</fr>
+  </Message>
+  <Message ID="SIDEBAR_TOURNEW">
+    <en>Latest offers</en>
+    <fr>Dernières offres</fr>
+  </Message>
+  <Message ID="TITLE_TOUR_HOME">
+    <en>Offers of Vietnam Travel Motorbike</en>
+    <fr>Voyage Cambodge vous offre</fr>
+  </Message>
+  <Message ID="NEWS_LETTER">
+    <en>Subscribe for our articles</en>
+    <fr>Vous abonner pour nos articles</fr>
+  </Message>
+  <Message ID="READ_MORE">
+    <en>Continue reading</en>
+    <fr>Continuer la lecture</fr>
+  </Message>
+  <Message ID="HOME">
+    <en>Home</en>
+    <fr>Accueil</fr>
+  </Message>
+</Table>

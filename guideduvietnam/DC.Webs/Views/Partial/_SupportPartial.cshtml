@@ -1,0 +1,44 @@
+﻿@model DC.Webs.Models.PublicViewModel
+
+@if (Model != null)
+{
+    <div id="tawkchat-container" class="tawkchat-background-color">
+        <div class="tawkarrow">
+            <i id="tawkarrow" class="fa fa-angle-down"></i>
+        </div>
+        <div class="tawkcontent">
+            <p>
+                <a href="tel:@Model.ParameterInfo.Phone" title="Hotline">
+                    <i class="fa fa-phone"></i> @Model.ParameterInfo.Phone
+                </a>
+            </p>
+            <p>
+                <a href="mailto:@Model.ParameterInfo.Email" title="Email">
+                    <i class="fa fa-envelope"></i> @Model.ParameterInfo.Email
+                </a>
+            </p>
+            <p>
+                <a href="javascript:;" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <i class="fa fa-map"></i> @(Model.Language == "en" ? "click to see the map" : "cliquez pour voir la carte")
+                </a>
+            </p>
+        </div>
+    </div>    
+    <div id="popupMap" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="myLargeModalLabel">Map</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="img-map" src="@Model.ParameterInfo.ImgMap" />
+                </div>
+            </div>
+        </div>        
+    </div>
+}
+
+

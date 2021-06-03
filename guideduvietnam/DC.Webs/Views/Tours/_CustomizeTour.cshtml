@@ -1,0 +1,113 @@
+﻿@using System.Configuration
+@model DC.Webs.Models.HomeViewModel
+<div id="CustomizeTour" class="wrapForms">
+    <div class="des-formtour">
+        @Html.Raw(Model.ParameterInfo.CustomizeTour)
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Name" : "Votre nom de famille") <span class="error">(*)</span>
+            </label>
+            <input type="text" class="form-control" data-bind="value:Name"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Your surname" : "Votre prénom") <span class="error">(*)</span>
+            </label>
+            <input type="text" class="form-control" data-bind="value:YourName"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Email" : "Adresse d’émail") <span class="error">(*)</span>
+            </label>
+            <input type="text" class="form-control" data-bind="value:Email"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Nationality" : "Nationalité")
+            </label>
+            <input type="text" class="form-control" data-bind="value:Nationality"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Arrival Date (dd/mm/yyyy)" : "Date de l’arrivée approximative (jour/mois/année)")
+            </label>
+            <input type="text" class="form-control" data-bind="value:ArrivalDate" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Telephone" : "Téléphone") <span class="error">(*)</span>
+            </label>
+            <input type="text" class="form-control" data-bind="value:Telephone"/>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Depature Date (dd/mm/yyyy)" : "Date du départ approximatif (jour/mois/année)")
+            </label>
+            <input type="text" class="form-control" data-bind="value:DepatureDate"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label>
+                @(Model.Language == "en" ? "Person number" : "Nombre de personne")
+            </label>
+            <input type="text" class="form-control" data-bind="value:PersonNumber"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="bold">@(Model.Language == "en" ? "Hotel class: Price in USD / night / double room" : "Classe d’hôtel: Prix en EUR par chambre partagée / nuit")</p>
+            <ul class="hotel-item" data-bind="foreach:HotelItems">
+                <li><label><input type="checkbox" name="Hotel" value="" data-bind="value:Id"/> <span data-bind="text:Name"></span></label></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="bold">@(Model.Language == "en" ? "Breakfast included in your hotel; Do you want lunch and diner" : "Le petit déjeuner compris dans l'hôtel; Vous voulez")</p>
+            <div>
+                <label><input type="checkbox" value="Lunch" data-bind="checked:Lunch"/> @(Model.Language == "en" ? "Lunch" : "Le déjeuner")</label>
+            </div>
+            <div>
+                <label><input type="checkbox" value="Dinner" data-bind="checked:Dinner"/> @(Model.Language == "en" ? "Dinner" : "Le dîner")</label>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="bold">@(Model.Language == "en" ? "Do you want we find the flight for you?" : "Vous voulez que nous trouvions le vol pour vous ?")</p>
+            <div>
+                <label><input type="radio" name="Flight" value="Yes" data-bind="checked:Flight"/> @(Model.Language == "en" ? "Yes" : "Oui")</label>
+            </div>
+            <div>
+                <label><input type="radio" name="Flight" value="No" data-bind="checked:Flight"/> @(Model.Language == "en" ? "No" : "Non")</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="bold">
+                @(Model.Language == "en" ? "Your Message" : "Votre message")
+            </label>
+            <textarea cols="20" rows="10" class="form-control" data-bind="value:Message"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pull-left">
+            <div class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings["Sitekey_CAPTCHA"]"></div>
+            <p class="error" data-bind="text:MessageError"></p>
+            <input type="button" class="btn btn-primary" data-bind="click:Submit" value="@(Model.Language == "en" ? "Send" : "Envoyer")" />
+        </div>
+    </div>
+</div>
+
+

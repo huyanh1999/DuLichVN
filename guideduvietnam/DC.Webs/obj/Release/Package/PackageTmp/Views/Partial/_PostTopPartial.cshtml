@@ -1,0 +1,47 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.PublicViewModel
+@if (Model != null)
+{
+    <aside id="insBlogSidebar">
+        <div class="right_sidebar">
+            <div class="all_right_widgets">
+                <div class="sing_right_widget">
+                    <h2>@Model.LableInfo.SidebarPostNew </h2 >
+                    <div class="sing_right_widg_content">
+                        <ul class="lat_news_right">
+                            @foreach (var item in Model.PostItems)
+                            {                                
+                                <li class="newItem">
+                                    <div class="wrap clearfix">
+                                        <a href="@(item.PostType==PostTypeConst.TOUR?"/tour/":"/post/")@item.KeySlug">
+                                            <img src="@item.Picture" alt="@item.Name">
+                                        </a>
+                                        <div class="lat_news_right_con">
+                                            <a href="@(item.PostType==PostTypeConst.TOUR?"/tour/":"/post/")@item.KeySlug">
+                                                <h3>@item.Name</h3>
+                                            </a>                                            
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sing_right_widget">
+                    <h2>Tags</h2>
+                    <div class="sing_right_widg_content">
+                        <ul class="category_right blogTags">
+                            @foreach (var item in Model.TagItems)
+                            {
+                                <li>
+                                    <a href="@(item.TagType==TagConst.TAGPOST?"/tag/":"/tags/")@item.KeySlug">@item.Name</a>
+                                </li>
+                            }                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+}

@@ -1,0 +1,89 @@
+﻿@model DC.Webs.Models.SliderViewModel
+@{
+    ViewBag.Title = "Thêm mới slide ảnh";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="row" id="addSlider">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Thêm ảnh slide</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmAdd" enctype="multipart/form-data" action="/Admin/Slider/Add" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Name">
+                                Tên slide <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="text" id="Name" name="Name" data-bind="value:Name" maxlength="500" class="form-control">
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Url">
+                                Link url <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="text" id="Url" name="Url" data-bind="value:Url" maxlength="500" class="form-control">
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Images">
+                                Ảnh slide <span style="font-size: 11px;">Ảnh có kích thước 1000 x 450 px, và có định dạng: .gif, .jpg, .png</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="/Images/demoUpload.jpg" alt="" />
+                                    </div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                    <div>
+                                        <span class="btn btn-file btn-primary">
+                                            <span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span>
+                                            <input type="file" name="Images" id="Images" data-bind="value:Images" accept="image/*" />
+                                        </span>
+                                        <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Description">
+                                Tóm tắt
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" name="Description" id="Description" class="form-control" data-bind="value: Description" maxlength="500"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="OrderBy">
+                                Thứ tự hiển thị
+                            </label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <input type="text" id="OrderBy" name="OrderBy" data-bind="value:OrderBy" class="form-control">
+                            </div>
+                        </div>                        
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <a href="/Admin/Slider" class="btn btn-primary">Cancel</a>
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/slide/SlideAdd.js"></script>
+

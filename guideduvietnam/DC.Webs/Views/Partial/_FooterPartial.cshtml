@@ -1,0 +1,52 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.PublicViewModel
+@if (Model != null)
+{
+    <footer id="insFooter" class="insFooter styleNew">
+        <div class="topFooter">
+            <div class="container">
+                <div class="mainFooter">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-xs-12 colFooter left">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 colRightFTTop">
+                                    <div class="ftShopInfo clearfix">
+                                        @MvcHtmlString.Create(Model.ParameterInfo.Footer)
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-xs-12 colFooter right">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12 ftNewsletter">
+                                    <h4>
+                                        @Model.LableInfo.NewsLetter
+                                    </h4>
+                                    <div class="ftForm">
+                                        <form accept-charset="UTF-8" action="/account/contact" class="contact-form" method="post">
+                                            <input name="form_type" value="customer" type="hidden">
+                                            <input name="utf8" value="✓" type="hidden">
+                                            <p class="footer_form clearfix">                                                
+                                                <input name="contact[email]" placeholder="Email" required="required" type="email">
+                                                <button class="button">@(Model.Language=="en"? "Subscribe" : "Vous abonner")</button>
+                                            </p>
+                                        </form>
+                                    </div>                                    
+                                    <ul class="ftSocial notStyle">
+                                        <li><a href="@Model.ParameterInfo.Facebook" target="_blank" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="@Model.ParameterInfo.Twitter" target="_blank" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="@Model.ParameterInfo.GooglePlus" target="_blank" title=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                        <li><a href="@Model.ParameterInfo.Youtube" target="_blank" title=""><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                        <li><a href="@Model.ParameterInfo.Instagram" target="_blank" title=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+}

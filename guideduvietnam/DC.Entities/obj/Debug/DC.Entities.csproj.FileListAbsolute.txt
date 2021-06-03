@@ -1,0 +1,64 @@
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\DC.Entities.dll.config
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\DC.Entities.dll
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\DC.Entities.pdb
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.dll
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.xml
+E:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\MrLong\Motorbike\DC.Entities\obj\Debug\DC.Entities.dll
+E:\Project\MrLong\Motorbike\DC.Entities\obj\Debug\DC.Entities.pdb
+E:\Project\MrLong\Motorbike\DC.Entities\obj\Debug\DC.Entities.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\DC.Entities.dll.config
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\DC.Entities.dll
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\DC.Entities.pdb
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.dll
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.xml
+G:\Project\MrLong\Motorbike\DC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+G:\Project\MrLong\Motorbike\DC.Entities\obj\Debug\DC.Entities.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\Motorbike\DC.Entities\obj\Debug\DC.Entities.dll
+G:\Project\MrLong\Motorbike\DC.Entities\obj\Debug\DC.Entities.pdb
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\DC.Entities.dll.config
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\DC.Entities.dll
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\DC.Entities.pdb
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\EntityFramework.dll
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\EntityFramework.xml
+G:\Project\MrLong\cambodia_motobike\DC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+G:\Project\MrLong\cambodia_motobike\DC.Entities\obj\Debug\DC.Entities.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\cambodia_motobike\DC.Entities\obj\Debug\DC.Entities.dll
+G:\Project\MrLong\cambodia_motobike\DC.Entities\obj\Debug\DC.Entities.pdb
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\DC.Entities.dll.config
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\DC.Entities.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\DC.Entities.pdb
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.xml
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.pdb
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\DC.Entities.dll.config
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\DC.Entities.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\DC.Entities.pdb
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.xml
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.csprojAssemblyReference.cache
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.csproj.CoreCompileInputs.cache
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.csproj.CopyComplete
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Entities\obj\Debug\DC.Entities.pdb
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\DC.Entities.dll.config
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\DC.Entities.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\DC.Entities.pdb
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\EntityFramework.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\EntityFramework.xml
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\obj\Debug\DC.Entities.csprojAssemblyReference.cache
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\obj\Debug\DC.Entities.csproj.CoreCompileInputs.cache
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\obj\Debug\DC.Entities.csproj.CopyComplete
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\obj\Debug\DC.Entities.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Entities\obj\Debug\DC.Entities.pdb

@@ -1,0 +1,122 @@
+﻿@model DC.Webs.Models.UserViewModel
+@{
+    ViewBag.Title = "Cập nhật người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="">
+    <div class="row" id="editUser">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Cập nhật người dùng</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmEdit" enctype="multipart/form-data" action="/Admin/User/Edit/@Model.UserInfo.Id" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="FirstName">
+                                Họ đệm <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text"  id="FirstName" name="FirstName" data-bind="value:FirstName" maxlength="50" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="LastName">
+                                Tên <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="LastName" name="LastName" data-bind="value:LastName" maxlength="50" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Email">
+                                Email
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="Email" name="Email" data-bind="value:Email" maxlength="150" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Phone">
+                                Điện thoại
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="Phone" name="Phone" data-bind="value:Phone" maxlength="50" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="UserName">
+                                Tên đăng nhập <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" disabled="" id="UserName" name="UserName" data-bind="value:UserName" maxlength="50" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Password">
+                                Mật khẩu <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="checkbox" data-bind="checked:ChangePass" /> <label>Đổi mật khẩu</label>
+                                <div data-bind="visible: ChangePass">
+                                    <input type="password" id="Password" name="Password" data-bind="value:Password" maxlength="250" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="UserName">
+                                Vai trò người dùng <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control" name="RoleName" id="RoleName" data-bind="value: RoleName, foreach: RoleOptions">
+                                    <option data-bind="value: Value, text: Text"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="UserName">
+                                Trạng thái
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="IsLockedOut" value="LOCK" data-bind="checked: IsLockedOut">
+                                        Khóa
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="IsLockedOut" value="UNLOCK" data-bind="checked: IsLockedOut">
+                                        Mở
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Password">
+                                Ghi chú
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" placeholder="Nhập mô tả" name="Description" id="Description" class="form-control" data-bind="value: Description" maxlength="255"></textarea>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <a href="/Admin/User" class="btn btn-primary">Cancel</a>
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/User/UserEdit.js"></script>
+

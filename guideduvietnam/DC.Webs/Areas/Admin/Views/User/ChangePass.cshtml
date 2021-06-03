@@ -1,0 +1,51 @@
+﻿@model DC.Webs.Models.UserViewModel
+@{
+    ViewBag.Title = "Đổi mật khẩu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="row" id="ChangePasswordSettings">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Đổi mật khẩu</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmChangePasswordSettings" enctype="multipart/form-data" action="/Admin/User/ChangePassword" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="NewPassword">
+                                Mật khẩu mới <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="password" id="NewPassword" name="NewPassword" data-bind="value:NewPassword" maxlength="32" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="ConfirmPassword">
+                                Nhập lại mật khẩu <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="password" id="ConfirmPassword" name="ConfirmPassword" data-bind="value:ConfirmPassword" maxlength="32" class="form-control">
+                            </div>
+                        </div>                        
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                               
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/User/ChangePasswordSettings.js"></script>
+

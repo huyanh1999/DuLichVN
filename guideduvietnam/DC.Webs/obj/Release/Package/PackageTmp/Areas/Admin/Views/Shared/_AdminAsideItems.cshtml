@@ -1,0 +1,74 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.BaseViewModel
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <ul class="nav side-menu">
+            @if (Model.CurrentUser.RoleName.Equals(RoleConst.ADMINISTRATOR, StringComparison.OrdinalIgnoreCase))
+            {
+                <li>
+                    <a><i class="fa fa-home"></i>Người dùng <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="/Admin/User/Add">Thêm người dùng</a></li>
+                        <li><a href="/Admin/User">Danh sách người dùng</a></li>
+                    </ul>
+                </li>
+            }
+            
+
+            <li>
+                <a><i class="fa fa-list-ul"></i>Menu <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/Admin/Menus">Quản lý menu</a></li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-list-ul"></i> Quản lý danh mục <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/Admin/Category/Add">Thêm danh mục</a></li>
+                    <li><a href="/Admin/Category">Danh sách danh mục</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/Admin/Tags"><i class="fa fa-tags"></i> Danh sách tags</a>
+            </li>             
+            <li>
+                <a><i class="fa fa-edit"></i> Quản lý bài viết <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">                    
+                    <li><a href="/Admin/Post/Add">Thêm bài viết</a></li>
+                    <li><a href="/Admin/Post">Danh sách bài viết</a></li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-motorcycle"></i> Quản lý tour <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">                    
+                    <li><a href="/Admin/Product/Add">Thêm tour</a></li>
+                    <li><a href="/Admin/Product">Danh sách tour</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/Admin/Hotel"><i class="fa fa-hotel"></i> Quản lý hotel</a>                
+            </li>
+            <li>
+                <a><i class="fa fa-sliders"></i> Quản lý Slider <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/Admin/Slider/Add">Thêm slider</a></li>
+                    <li><a href="/Admin/Slider">Danh sách slider</a></li>
+                </ul>
+            </li>            
+            <li>
+                <a href="/Admin/Activities"><i class="fa fa-history"></i> Nhật ký hệ thống</a>
+            </li>
+            <li>
+                <a><i class="fa fa-cogs"></i> Cài đặt <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/Admin/Setting/CompanyInfo">Thông tin công ty</a></li>
+                    <li><a href="/Admin/Setting/Seo">Seo</a></li>
+                    <li><a href="/Admin/Setting/Social">Mạng xã hội</a></li>
+                    <li><a href="/Admin/Setting/Map">Thông tin bản dồ</a></li>
+                    <li><a href="/Admin/Setting/RenderSitemap">Sitemap</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+</div>

@@ -1,0 +1,60 @@
+﻿@model DC.Webs.Models.ParameterViewModel
+@{
+    ViewBag.Title = "Cấu hình thông tin Seo";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="row" id="SettingSeo">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Cấu hình thông tin seo</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmSettingSeo" enctype="multipart/form-data" action="/Admin/Setting/Seo" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Meta Title
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="METATITLE" name="METATITLE" data-bind="value:METATITLE" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Metat keyword
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="METAKEYWORD" name="METAKEYWORD" data-bind="value:METAKEYWORD" maxlength="160" class="form-control col-md-7 col-xs-12"></textarea>                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Meta Description
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="METADESCRIPTION" name="METADESCRIPTION" data-bind="value:METADESCRIPTION" maxlength="250" class="form-control col-md-7 col-xs-12"></textarea>                                
+                            </div>
+                        </div>                        
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/Parameter/SettingSeo.js"></script>
+

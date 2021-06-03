@@ -1,0 +1,100 @@
+﻿@using DC.Common.Utility
+@model DC.Webs.Models.HomeViewModel
+@{
+    ViewBag.Title = "Giỏ hàng";
+    ViewBag.MetaKeyword = Model.ParameterInfo.MetaKeyword;
+    ViewBag.MetaDescription = Model.ParameterInfo.MetaDescription;
+    ViewBag.Description = Model.ParameterInfo.MetaDescription;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="/">Trang chủ</a></li>
+            <li><i class="fa fa-angle-right"></i></li>
+            <li class="active">Giỏ hàng</li>
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>
+@if (Model != null)
+{
+    <div class="mar15">
+        <div class="container">
+            <form action="/gio-hang" method="post">
+                <div class="cart_table">
+                    @if (Model.CartItems.Count <= 0)
+                    {
+                        <div class="alert alert-warning fade in green-alert" role="alert">
+                            <button class="close" type="button" data-dismiss="alert">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            Chưa có sản phẩm nào trong giỏ hàng của bạn !
+                        </div>
+                    }
+                    else
+                    {
+                        <table>
+                            <thead>
+                            <tr>
+                                <th width="14%">Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th width="15%">Đơn giá</th>
+                                <th width="10%">Số lượng</th>
+                                <th width="15%">Thành tiền</th>
+                                <th width="5%">Xóa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <tr>
+                                    <td style="text-align: center;"><a href="/san-pham/@item.KeySlug"><img src="@item.Images"></a></td>
+                                    <td style="font-weight: bold; padding-left: 15px;">
+                                        <a href="/san-pham/@item.KeySlug">@item.ProductName</a>
+                                    </td>
+                                    <td style="text-align: center;">@StringTools.ConvertToString(item.Price)₫</td>
+                                    <td><input style="height: 35px;" class="form-control text-center" min="1" name="Qty" type="number" value="@item.Qty" onkeypress="return isNumber(event)" maxlength="12"></td>
+                                    <td style="text-align: center;">@StringTools.ConvertToString(item.TotalPrice)₫</td>
+                                    <td style="text-align: center;"><a href="/cart/remove?productId=@item.ProductId"><i class="fa fa-trash-o"></i></a></td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+
+                </div>
+                <div class="tip_button">
+                    <a href="/san-pham">Tiếp tục mua hàng</a>
+                    @if (Model.CartItems.Count > 0)
+                    {
+                        <button class="btn" title="Update Cart" value="update_qty" name="update_cart_action" type="submit">Cập nhật giỏ hàng</button>
+                    }
+
+                </div>
+                @if (Model.CartItems.Count > 0)
+                {
+                    <div class="payment">
+                        <p><span class="pay_tit">Tổng tiền</span><span>@StringTools.ConvertToString(Model.TotalPrice)₫</span></p>
+                        <a href="/checkout" name="checkout" class="proceed">Đặt hàng</a>
+                    </div>
+                }
+
+            </form>
+        </div>
+    </div>
+    <script>
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+
+
+

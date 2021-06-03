@@ -1,0 +1,144 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.HomeViewModel
+@{
+    ViewBag.Title = Model.ParameterInfo.MetaTitle;
+    ViewBag.MetaKeyword = Model.ParameterInfo.MetaKeyword;
+    ViewBag.MetaDescription = Model.ParameterInfo.MetaDescription;
+    ViewBag.Description = Model.ParameterInfo.MetaDescription;
+    ViewBag.ImageUrl = System.Configuration.ConfigurationManager.AppSettings["Website"] + "/Images/img-index.png";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int indexslider = 0;
+}
+<link href="/Themes/css/slider.css" rel="stylesheet">
+@if (Model != null)
+{
+    <div class="stage">
+        <div id="SLDR-ONE" class="sldr">
+            <ul class="wrp animate">
+                @foreach (var item in Model.SlideItems)
+                {
+                    indexslider++;
+                    <li class="@(string.Format("elmnt-{0}",indexslider))">
+                        <div class="skew">
+                            <div class="wrap">
+                                <a href="@item.Url" title="@item.Name" target="_blank">
+                                    <img src="@item.Images" alt="@item.Name" width="1000" height="450">
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </li>
+                }                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="clear"></div>    
+
+    <section id="blogHome" class="blockSection blogHome">
+        <div class="container">
+            <div class="about-home">
+                @Html.Raw(Model.ParameterInfo.AboutHome)
+            </div>
+            <div class="wapperBlogHome">
+                <div class="featuredTitle">
+                    <a href="/">
+                        <h2>
+                            @Model.LableInfo.TitleTourHome
+                        </h2>
+                    </a>
+                    @*<p class="titleDesc">
+                            @{Html.RenderAction("GetLable", "Partial", new { id = LableConst.TITLE_DESC_TOUR_HOME });}
+                        </p>*@
+                </div>
+                <div class="wrapperHomepage row">
+                    @foreach (var item in Model.PostItems)
+                    {
+                        <div class="articleItem col-md-4 col-sm-12 col-xs-12">
+                            <div class="insArticleLoop">
+                                <div class="articlePostBody bg_w">
+                                    <div class="postThumbIMG relative imageHover">
+                                        <a href="/tour/@item.KeySlug" target="@item.Target">
+                                            <img data-reg="true" class="imgLoopItem" src="@item.Picture" alt="@item.Name" style="width: auto;">
+                                        </a>
+                                        <div class="createdInfo">
+                                            <ul class="notStyle">                                                
+                                                <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CateName</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="postDetail">
+                                        <div class="detail clearfix">
+                                            <h2>
+                                                <a href="/tour/@item.KeySlug" title="@item.Name" target="@item.Target">@item.Name</a>
+                                            </h2>
+                                            <p>@item.Description</p>
+                                            <a href="/tour/@item.KeySlug" class="view" title="@Model.LableInfo.ReadMore" target="@item.Target">@Model.LableInfo.ReadMore <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+}
+@section scripts{
+
+    <script src="/Themes/js/jquery.sldr.js"></script>
+<script>
+
+$(window).load( function() {
+
+	$('.sldr').each( function() {
+		var th = $( this );
+		th.sldr({
+			focalClass    : 'focalPoint',
+			offset        : th.width() / 2,
+			sldrWidth     : 'responsive',
+			nextSlide     : th.nextAll( '.sldr-nav.next:first' ),
+			previousSlide : th.nextAll( '.sldr-nav.prev:first' ),
+			selectors     : th.nextAll( '.selectors:first' ).find( 'li' ),
+			toggle        : th.nextAll( '.captions:first' ).find( 'div' ),
+			sldrInit      : sliderInit,
+			sldrStart     : slideStart,
+			sldrComplete  : slideComplete,
+			sldrLoaded    : sliderLoaded,
+			sldrAuto      : true,
+			sldrTime      : 5000,
+			hasChange     : true
+		});
+	});
+
+});
+
+function sliderInit(args) {
+
+}
+
+
+function slideLoaded(args) {
+
+}
+
+function sliderLoaded(args) {
+
+}
+
+function slideStart(args) {
+
+}
+
+
+function slideComplete(args) {
+
+}
+
+</script>
+}
+
+

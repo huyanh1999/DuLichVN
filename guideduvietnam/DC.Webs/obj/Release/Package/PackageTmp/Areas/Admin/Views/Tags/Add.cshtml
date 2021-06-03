@@ -1,0 +1,82 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.TagViewModel
+@{
+    ViewBag.Title = "Thêm mới tag";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string title= Request.QueryString["type"] != null && Request.QueryString["type"] == TagConst.TAGPOST ? "Bài viết" : "Sản phẩm";
+}
+
+
+<div class="">
+    <div class="row" id="addTags">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Thêm tag @title</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmAdd" enctype="multipart/form-data" action="/Admin/Tags/Add?type=@Model.TagType" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Name">
+                                Tên tag <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" id="Name" name="Name" data-bind="value:Name" maxlength="512" class="form-control">
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Title">
+                                Title web <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" id="Title" name="Title" data-bind="value:Title" maxlength="500" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Url">
+                                Slug url <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" id="Url" name="Url" data-bind="value:Url" maxlength="512" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="MetaKeyword">
+                                Meta keyword<br />
+                                <span style="font-size: 11px;">Số ký tự đã dùng: <b data-bind="text: MetaKeywordsLength">0</b>/160</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" name="MetaKeyword" id="MetaKeyword" class="form-control" data-bind="value: MetaKeyword" maxlength="160"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="MetaDescription">
+                                Meta description<br />
+                                <span style="font-size: 11px;">Số ký tự đã dùng: <b data-bind="text: MetaDescriptionLength">0</b>/250</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" name="MetaDescription" id="MetaDescription" class="form-control" data-bind="value: MetaDescription" maxlength="250"></textarea>
+                            </div>
+                        </div>
+                        
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <a href="/Admin/Tags?type=@Model.TagType" class="btn btn-primary">Cancel</a>
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/Tags/TagAdd.js"></script>
+

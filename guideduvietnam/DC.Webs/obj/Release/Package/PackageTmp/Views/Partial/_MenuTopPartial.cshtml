@@ -1,0 +1,75 @@
+﻿@model DC.Webs.Models.PublicViewModel
+@{
+    string path = HttpContext.Current.Request.Url.AbsolutePath;
+
+}
+@if (Model != null)
+{
+    <nav id="headerMenu">
+        <div class="container">
+            <div id="headerNav" class="">
+                <nav id="navWrap" class="nav navSiteMain">
+                    <div class="loginMB visible-xs visible-sm">
+                        <div class="wrapLogin clearfix">
+                            <a href="/"><img src="@(Model.Language=="en"?"/Images/logo-en.png":"/Images/logo-fr.png")" alt="@(Model.Language=="en"?"Vietnam travel motorbike":"Voyage vietnam moto")"></a>
+                        </div>
+                    </div>
+                    <ul class="nav-navbar notStyle clearfix">
+                        <li class="active">
+                            <a href="/" class="current" title="@(Model.Language=="en"?"Home":"Accueil")">
+                                <span>@(Model.Language == "en" ? "Home" : "Accueil")</span>
+                            </a>
+                        </li>
+                        @foreach (var item in Model.MenuItems)
+                        {
+                            if (item.ChildItems.Any())
+                            {
+                                <li class="liChild ">
+                                    <a href="@item.Url" title="@item.Name" class="">
+                                        <span>@item.Name</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </a>
+                                    <ul class="mainChild levlup_2" role="menu">
+                                        @foreach (var child in item.ChildItems)
+                                        {
+                                            if (child.ChildItems.Any())
+                                            {
+                                                <li class="liChild">
+                                                    <a href="@child.Url" class="" title="@child.Title"><span>@child.Title</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                                    <ul class="mainChild levlup_3">
+                                                        @foreach (var subChild in child.ChildItems)
+                                                        {
+                                                            <li class="">
+                                                                <a href="@subChild.Url" title="@subChild.Title"><span>@subChild.Title</span></a>
+                                                            </li>
+                                                        }                                                        
+                                                    </ul>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="">
+                                                    <a href="@child.Url" title="@child.Title"><span>@child.Title</span></a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="">
+                                    <a href="@item.Url" class="" title="@item.Name">
+                                        <span>@item.Name</span>
+                                    </a>
+                                </li>
+                            }
+                        }                                               
+                    </ul>
+                    <div class="visible-xs visible-sm closeMenuMB text-center">
+                        <a href="javascript:void(0)" class="closeNav viewAll">Close</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </nav>
+}

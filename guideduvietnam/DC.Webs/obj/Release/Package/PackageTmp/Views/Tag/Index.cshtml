@@ -1,0 +1,85 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.HomeViewModel
+@{
+    ViewBag.Title = Model.TagInfo.Name;
+    ViewBag.MetaKeyword = Model.TagInfo.Name;
+    ViewBag.MetaDescription = Model.TagInfo.Name;
+    ViewBag.ImageUrl = System.Configuration.ConfigurationManager.AppSettings["Website"] + "/Images/img-index.png";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var rqPage = Request.QueryString["page"] ?? "1";
+
+    string slug = Model.TagInfo.KeySlug;
+}
+@if (Model != null)
+{
+    <section id="insBlogPage">
+        <div class="insBreadcrumb ">
+            <div class="container">
+                <div class="breadcrumb-wrap">
+                    <ol class="breadcrumb breadcrumb-arrow hidden-sm hidden-xs">
+                        <li><a href="/" target="_self">@Model.LableInfo.Home</a></li>
+                        <li class="active"><span>@Model.TagInfo.Name</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="searchHead">
+                <p>
+                    Tag: @Model.TagInfo.Name
+                </p>
+            </div>
+            <div class="wrapperBlogPage taglist">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            @foreach (var item in Model.PostItems)
+                            {
+                                <div class="articleItem col-md-4 col-sm-12 col-xs-12">
+                                    <div class="insArticleLoop">
+                                        <div class="articlePostBody bg_w">
+                                            <div class="postThumbIMG relative imageHover">
+                                                <a href="@(item.PostType == PostTypeConst.TOUR ? "/tour/" : "/post/")@item.KeySlug" target="@item.Target">
+                                                    <img data-reg="true" class="imgLoopItem" src="@item.Picture" alt="@item.Name" style="width: auto;">
+                                                </a>
+                                                <div class="createdInfo">
+                                                    <ul class="notStyle">
+                                                        <li class="post"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>@item.CateName</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="postDetail">
+                                                <div class="detail clearfix">
+                                                    <h3>
+                                                        <a href="@(item.PostType == PostTypeConst.TOUR ? "/tour/" : "/post/")@item.KeySlug" title="@item.Name" target="@item.Target">@item.Name</a>
+                                                    </h3>
+                                                    <p>
+                                                        @Html.Raw(item.Description)
+                                                    </p>
+                                                    <a href="@(item.PostType == PostTypeConst.TOUR ? "/tour/" : "/post/")@item.KeySlug" class="view" title="@Model.LableInfo.ReadMore" target="@item.Target">@Model.LableInfo.ReadMore <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <ul class="pagination justify-content-center">
+                            @for (int i = Model.PageIndex - 4; i < Model.PageIndex + 4; i++)
+                            {
+                                if (i >= 1 && i <= Model.TotalPages)
+                                {
+                                    <li class="page-item @(i == Model.PageIndex ? "disabled" : "")">
+                                        <a class="page-link" href="/@(Model.TagInfo.TagType.ToUpper()==TagConst.TAGTOUR?"tags":"tag")/@Model.TagInfo.KeySlug?&page=@i">@i</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </section>
+ }
+

@@ -1,0 +1,35 @@
+﻿@model DC.Webs.Models.PublicViewModel
+<div class="sidebar_new clearfix">
+    <div class="collection-categories">
+        <div class="textwidget">
+            <h3>Danh mục</h3>
+            @if (Model != null)
+            {
+                <ul class="cc-list">
+                    @if (Model.CategoryItems.Count > 0)
+                    {
+                        foreach (var item in Model.CategoryItems)
+                        {
+                            <li class="">
+                                <a href="/danh-muc/@item.KeySlug">@item.Name</a>
+                                @if (item.ChildItems != null && item.ChildItems.Count > 0)
+                                {
+                                    <ul class="submenu">
+                                        @foreach (var subItem in item.ChildItems)
+                                        {
+                                            <li class="level1"><a href="/danh-muc/@subItem.KeySlug"><i class="fa fa-angle-right"></i> @subItem.Name</a></li>
+                                        }
+                                        
+                                    </ul>
+                                }
+                                
+                            </li>
+                        }
+                    }
+                    
+                </ul>
+            }
+            
+        </div>
+    </div>
+</div>

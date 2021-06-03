@@ -1,0 +1,128 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.HomeViewModel
+@{
+    ViewBag.Title = Model.PostInfo.Title;
+    ViewBag.MetaKeyword = Model.PostInfo.MetaKeyword;
+    ViewBag.MetaDescription = Model.PostInfo.MetaDescription;
+    ViewBag.ImageUrl = System.Configuration.ConfigurationManager.AppSettings["Website"] + Model.PostInfo.Picture;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <section id="insArticlePage">
+        <div class="insBreadcrumb blog-breadcrumb">
+            <div class="container">
+                <div class="breadcrumb-wrap">
+                    <ol class="breadcrumb breadcrumb-arrow hidden-sm hidden-xs">
+
+                        <li><a href="/" target="_self">@Model.LableInfo.Home </a></li>
+                        @if (Model.CategoryInfo != null)
+                        {
+                            <li><a href="/category/@Model.CategoryInfo.KeySlug" target="_self">@Model.CategoryInfo.Name</a> </li>
+                        }
+                        <li class="active"><span>@Model.PostInfo.Name</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="wrapperArticlePage">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="insCtMain">
+                            <div class="main_article bg_w">
+                                @if (Model.PostImageItems.Any())
+                                {
+                                    <div class="row" style="margin-bottom: 20px;">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 bannerSlider">
+                                            <div class="boxSlideHome" style="max-height: 350px !important;">
+                                                <div class="owlDesign sliderTourWrap owl-carousel owl-theme owl-responsive--1 owl-loaded">
+                                                    @foreach (var item in Model.PostImageItems)
+                                                    {
+                                                        <div class="itemSlide">
+                                                            <a href="javascript:;">
+                                                                <img class="owl-lazy slidetourdetail" data-src="@item.Images" alt="">
+                                                            </a>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="head">
+                                    <h1>
+                                        @Model.PostInfo.Name
+                                    </h1>
+                                    <div class="info_edu">
+                                        <ul>
+                                            <li><i class="fa fa-book" aria-hidden="true"></i> @Model.PostInfo.CateName</li>
+                                            <li>
+                                                <i class="fa fa-tags" aria-hidden="true"></i>
+                                                @foreach (var item in Model.TagItems)
+                                                {
+                                                    <a href="/tags/@item.KeySlug">@item.Name ,</a>
+                                                }
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="addthis_native_toolbox"></div>
+                                </div>
+                                <div class="pdBlockDetail pdTabInfo">
+                                    <div class="listTabs">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#tabOverView" aria-controls="tabOverView" role="tab" data-toggle="tab">@(Model.Language == "en" ? "Over view" : "Vue générale")</a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#tabTripInDetail" aria-controls="tabTripInDetail" role="tab" data-toggle="tab">@(Model.Language == "en" ? "Trip in detail" : "Programme en détails")</a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#tabCustomizeTour" aria-controls="tabCustomizeTour" role="tab" data-toggle="tab">@(Model.Language == "en" ? "Customize tour" : "Devis")</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="tabOverView">
+                                                <div class="content">
+                                                    @Html.Raw(Model.PostInfo.OverView)
+                                                </div>
+
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="tabTripInDetail">
+                                                <div class="content">
+                                                    @Html.Raw(Model.PostInfo.Content)
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="tabCustomizeTour">
+                                                <div class="content">
+                                                    @Html.Partial("_CustomizeTour")
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 hidden-xs ba_sidebar">
+                        @{Html.RenderAction("PostTop", "Partial", new { type = CategoryConst.CATEGORYPRODUCT });}
+
+                        @{Html.RenderAction("FanPageFb", "Partial");}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/TourDetail.js"></script>

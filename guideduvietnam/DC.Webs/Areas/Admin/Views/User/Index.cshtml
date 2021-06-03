@@ -1,0 +1,86 @@
+﻿@model DC.Webs.Models.UserViewModel
+@{
+    ViewBag.Title = "Danh sách người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>
+                        Danh sách người dùng
+                    </h2>                    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="datatable" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Email</th>
+                        <th>Số ĐT</th>
+                        <th>Quyền</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày tạo</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model.UserItems)
+                        {
+                            <tr>
+                                <td>@item.FullName</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td>
+                                <td>@item.Phone</td>
+                                <td>@item.RoleName</td>
+                                <td>
+                                    @if (item.IsLockedOut)
+                                    {
+                                        <span class="btn btn-danger btn-xs">Close</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="btn btn-success btn-xs">Active</span>
+                                    }
+                                </td>
+                                <td>@item.CreateDate</td>
+                                <td>
+                                    <a class="btn btn-xs btn-default" href="/Admin/User/Edit/@item.Id" title="Cập nhật"><i class="fa fa-edit"></i></a>
+                                    @if (item.IsLockedOut)
+                                    {
+                                        <a class="btn btn-xs btn-default" href="/Admin/User/Unlock/@item.Id" title="Mở tài khoản này?" onclick="return confirm('Bạn chắc muốn mở khóa tài khoản này?');"><i class="fa fa-unlock"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-xs btn-default" href="/Admin/User/Lock/@item.Id" title="Khóa tài khoản?" onclick="return confirm('Bạn chắc muốn khóa tài khoản này?');"><i class="fa fa-lock"></i></a>
+                                    }
+                                    <a class="btn btn-xs btn-default" href="/Admin/User/ResetPass/@item.Id" title="Reset mật khẩu" onclick="return confirm('Bạn chắc muốn resset mật khẩu về mặc định?');"><i class="fa fa-refresh"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    }
+                    </tbody>                                         
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <!-- Datatables -->
+    <script>
+        $(document).ready(function () {
+            $('#datatable').dataTable({
+                "bSort": false
+            });
+        });
+    </script>
+    <!-- /Datatables -->
+}
+

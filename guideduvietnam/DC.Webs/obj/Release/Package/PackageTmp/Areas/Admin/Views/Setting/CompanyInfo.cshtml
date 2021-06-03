@@ -1,0 +1,184 @@
+﻿@model DC.Webs.Models.ParameterViewModel
+@{
+    ViewBag.Title = "Cấu hình thông tin công ty";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="row" id="CompanyInfo">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Thông tin công ty</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmCompanyInfo" enctype="multipart/form-data" action="/Admin/Setting/CompanyInfo" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Tên công ty
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="COMPANYNAME" name="COMPANYNAME" data-bind="value:COMPANYNAME" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                Địa chỉ
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="ADDRESS" name="ADDRESS" data-bind="value:ADDRESS" class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Email
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="EMAIL" name="EMAIL" data-bind="value:EMAIL" maxlength="150" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                Điện thoại
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="PHONE" name="PHONE" data-bind="value:PHONE" maxlength="50" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Giấy phép kinh doanh
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="BUSINESSLICENSE" name="BUSINESSLICENSE" data-bind="value:BUSINESSLICENSE" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Bản đồ
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="GMAP" name="GMAP" data-bind="value:GMAP" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Thông tin footer
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="FOOTER" name="FOOTER" data-bind="value:FOOTER" class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Giới thiệu bên slide
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="ABOUT" name="ABOUT" data-bind="value:ABOUT" class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Giới thiệu trang chủ
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="ABOUTHOME" name="ABOUTHOME" data-bind="value:ABOUTHOME" class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Thông tin trang liên hệ
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="FRMCONTACT" name="FRMCONTACT" data-bind="value:FRMCONTACT" class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Thông tin liên hệ trang đặt tour
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" id="CUSTOMIZETOUR" name="CUSTOMIZETOUR" data-bind="value:CUSTOMIZETOUR" class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                                
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/Parameter/CompanyInfo.js"></script>
+@section scripts{
+    @*<script src="http://cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>*@
+    <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+    <script>
+        
+        CKEDITOR.replace('ABOUT',
+        {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('ABOUTHOME',
+        {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('FOOTER',
+        {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('FRMCONTACT',
+        {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        CKEDITOR.replace('CUSTOMIZETOUR',
+        {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+    </script>
+}

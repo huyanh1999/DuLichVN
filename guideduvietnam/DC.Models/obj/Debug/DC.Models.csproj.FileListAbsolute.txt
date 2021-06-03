@@ -1,0 +1,52 @@
+E:\Project\MrLong\Motorbike\DC.Models\bin\Debug\DC.Models.dll
+E:\Project\MrLong\Motorbike\DC.Models\bin\Debug\DC.Models.pdb
+E:\Project\MrLong\Motorbike\DC.Models\bin\Debug\XmlModelDocument.xml
+E:\Project\MrLong\Motorbike\DC.Models\bin\Debug\Newtonsoft.Json.dll
+E:\Project\MrLong\Motorbike\DC.Models\bin\Debug\Newtonsoft.Json.xml
+E:\Project\MrLong\Motorbike\DC.Models\obj\Debug\DC.Models.dll
+E:\Project\MrLong\Motorbike\DC.Models\obj\Debug\DC.Models.pdb
+E:\Project\MrLong\Motorbike\DC.Models\obj\Debug\DC.Models.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\Motorbike\DC.Models\bin\Debug\DC.Models.dll
+G:\Project\MrLong\Motorbike\DC.Models\bin\Debug\DC.Models.pdb
+G:\Project\MrLong\Motorbike\DC.Models\bin\Debug\XmlModelDocument.xml
+G:\Project\MrLong\Motorbike\DC.Models\bin\Debug\Newtonsoft.Json.dll
+G:\Project\MrLong\Motorbike\DC.Models\bin\Debug\Newtonsoft.Json.xml
+G:\Project\MrLong\Motorbike\DC.Models\obj\Debug\DC.Models.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\Motorbike\DC.Models\obj\Debug\DC.Models.dll
+G:\Project\MrLong\Motorbike\DC.Models\obj\Debug\DC.Models.pdb
+G:\Project\MrLong\cambodia_motobike\DC.Models\bin\Debug\DC.Models.dll
+G:\Project\MrLong\cambodia_motobike\DC.Models\bin\Debug\DC.Models.pdb
+G:\Project\MrLong\cambodia_motobike\DC.Models\bin\Debug\XmlModelDocument.xml
+G:\Project\MrLong\cambodia_motobike\DC.Models\bin\Debug\Newtonsoft.Json.dll
+G:\Project\MrLong\cambodia_motobike\DC.Models\bin\Debug\Newtonsoft.Json.xml
+G:\Project\MrLong\cambodia_motobike\DC.Models\obj\Debug\DC.Models.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\cambodia_motobike\DC.Models\obj\Debug\DC.Models.dll
+G:\Project\MrLong\cambodia_motobike\DC.Models\obj\Debug\DC.Models.pdb
+G:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\DC.Models.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\DC.Models.pdb
+G:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\XmlModelDocument.xml
+G:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\Newtonsoft.Json.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\Newtonsoft.Json.xml
+G:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.csprojResolveAssemblyReference.cache
+G:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.dll
+G:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.pdb
+F:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\DC.Models.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\DC.Models.pdb
+F:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\XmlModelDocument.xml
+F:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\Newtonsoft.Json.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Models\bin\Debug\Newtonsoft.Json.xml
+F:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.csprojAssemblyReference.cache
+F:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.csproj.CoreCompileInputs.cache
+F:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.csproj.CopyComplete
+F:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.dll
+F:\Project\MrLong\guideduvietnam_new\DC.Models\obj\Debug\DC.Models.pdb
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\bin\Debug\DC.Models.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\bin\Debug\DC.Models.pdb
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\bin\Debug\XmlModelDocument.xml
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\bin\Debug\Newtonsoft.Json.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\bin\Debug\Newtonsoft.Json.xml
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\obj\Debug\DC.Models.csprojAssemblyReference.cache
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\obj\Debug\DC.Models.csproj.CoreCompileInputs.cache
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\obj\Debug\DC.Models.csproj.CopyComplete
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\obj\Debug\DC.Models.dll
+D:\Đại học Thủy Lợi\Đồ án\guideVN\guideduvietnam\DC.Models\obj\Debug\DC.Models.pdb

@@ -1,0 +1,214 @@
+﻿@model DC.Webs.Models.PostViewModel
+@{
+    ViewBag.Title = "Thêm mới bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <div class="row" id="addPost">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Thêm bài viết</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" id="frmAdd" enctype="multipart/form-data" action="/Admin/Post/Add" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Name">
+                                Tên bài viết <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="text" id="Name" name="Name" data-bind="value:Name" maxlength="512" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Title">
+                                Title web <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="text" id="Title" name="Title" data-bind="value:Title" maxlength="500" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Url">
+                                Slug url <span class="required">*</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input type="text" id="Url" name="Url" data-bind="value:Url" maxlength="512" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="CategoryId">
+                                Chọn danh mục
+                            </label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <select class="form-control select2_single" name="CategoryId" id="CategoryId" data-bind="value: CategoryId, foreach: CategoryOptions">
+                                    <option data-bind="value: Value, text: Text"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Picture">
+                                Ảnh đại diện <span style="font-size: 11px;">Ảnh có kích thước 480 x 270 px, và có định dạng: .gif, .jpg, .png</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="/Images/demoUpload.jpg" alt="" />
+                                    </div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                    <div>
+                                        <span class="btn btn-file btn-primary">
+                                            <span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span>
+                                            <input type="file" name="Picture" id="Picture" data-bind="value:Picture" accept="image/*" />
+                                        </span>
+                                        <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Description">
+                                Tóm tắt
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" name="Description" id="Description" class="form-control" data-bind="value: Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="MetaKeyword">
+                                Meta keyword<br />
+                                <span style="font-size: 11px;">Số ký tự đã dùng: <b data-bind="text: MetaKeywordsLength">0</b>/160</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" name="MetaKeyword" id="MetaKeyword" class="form-control" data-bind="value: MetaKeyword" maxlength="160"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="MetaDescription">
+                                Meta description<br />
+                                <span style="font-size: 11px;">Số ký tự đã dùng: <b data-bind="text: MetaDescriptionLength">0</b>/250</span>
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <textarea rows="2" cols="20" type="text" name="MetaDescription" id="MetaDescription" class="form-control" data-bind="value: MetaDescription" maxlength="250"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Contents">
+                                Nội dung
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <textarea type="text" name="Content" id="Contents" class="form-control" data-bind="value: Content"></textarea>
+                            </div>
+                        </div>                        
+                        <div class="control-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                                Tags
+                            </label>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <input id="TagId" name="TagId" type="text" class="tags form-control" data-bind="value: TagsId" />
+                                <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                                <div class="clear"></div>
+                                <div class="tags ws-nm">
+                                    <p>Thêm tags đã có</p>
+                                    <div class="input-group">
+                                        <ul data-bind="foreach:SuggestTags">
+                                            <li><label class="item item" data-bind="text:Text,attr:{class:'item tag-'+Value},click:$parent.SelectTag">Đầm</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="PostType">
+                                Loại bài viết
+                            </label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <select class="form-control select2_single" name="PostType" id="PostType" data-bind="value: PostTypeId, foreach: PostTypeOptions">
+                                    <option data-bind="value: Value, text: Text"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                            </label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <label>
+                                    <input type="checkbox" name="IsComment" value="1" data-bind="checked:IsComment"/> Hiển thị comment
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                            </label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <label>
+                                    <input type="checkbox" name="Target" value="_blank" data-bind="checked:Target" /> Mở bài viết sang cửa sổ mới
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="Status">
+                                Trạng thái
+                            </label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <select class="form-control select2_single" name="Status" id="Status" data-bind="value: StatusId, foreach: StatusOptions">
+                                    <option data-bind="value: Value, text: Text"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <a href="/Admin/Post" class="btn btn-primary">Cancel</a>
+                                <button type="submit" data-bind="click: Submit" class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Admin/Post/PostAdd.js"></script>
+
+@section scripts{
+    @*<script src="http://cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>*@
+    <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#TagId').tagsInput({
+                width: 'auto'
+            });
+        });
+        $(".select2_single").select2({
+            placeholder: "Select a option",
+            allowClear: false
+        });
+        $(".select2_multiple").select2({
+            placeholder: "Select tags",
+            allowClear: true
+        });
+        //CKEDITOR.replace('Content');
+        CKEDITOR.replace('Content',
+        {
+            filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '/ckfinder/ckfinder.html?type=Images',
+            filebrowserFlashBrowseUrl: '/ckfinder/ckfinder.html?type=Flash',
+            filebrowserUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl: '/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+    </script>
+}

@@ -1,0 +1,92 @@
+﻿@using DC.Webs.Common
+@model DC.Webs.Models.HomeViewModel
+@{
+    ViewBag.Title = Model.ParameterInfo.MetaTitle;
+    ViewBag.MetaKeyword = Model.ParameterInfo.MetaKeyword;
+    ViewBag.MetaDescription = Model.ParameterInfo.MetaDescription;
+    ViewBag.Description = Model.ParameterInfo.MetaDescription;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <div class="insMain">
+        <section id="insContactPage">
+            <div class="insBreadcrumb ">
+                <div class="container">
+                    <div class="breadcrumb-wrap">
+                        <ol class="breadcrumb breadcrumb-arrow hidden-sm hidden-xs">
+                            <li><a href="/" target="_self">@(Model.Language == "en" ? "Home" : "Accueil")</a></li>
+                            <li class="active"><span>@(Model.Language == "en" ? "Site map" : "Plan du site")</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="wrapperContactPage">
+                    <div class="headingPage">
+                        <h1 class="title">@(Model.Language == "en" ? "Site map" : "Plan du site")</h1>
+                    </div>
+                    <div class="contactList">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-xs-12 pull-left infoForm">
+                                <div class="wrapForm">
+                                    <ul>
+                                        @foreach (var item in Model.MenuItems)
+                                        {
+                                            if (item.ChildItems.Any())
+                                            {
+                                                <li>
+                                                    <a href="@item.Url" title="@item.Name" class="">
+                                                        <i class="fa fa-plus"></i> <span>@item.Name</span>
+                                                    </a>
+                                                    <ul class="">
+                                                        @foreach (var child in item.ChildItems)
+                                                        {
+                                                            if (child.ChildItems.Any())
+                                                            {
+                                                                <li class="">
+                                                                    <a href="@child.Url" class="" title="@child.Title"><i class="fa fa-arrow-right"></i> <span>@child.Title</span></a>
+                                                                    <ul class="">                                                                        
+                                                                        @foreach (var subChild in child.ChildItems)
+                                                                        {
+                                                                            <li class="">
+                                                                                <a href="@subChild.Url" title="@subChild.Title"><i class="fa fa-arrow-right"></i> <span>@subChild.Title</span></a>
+                                                                            </li>
+                                                                        }
+                                                                    </ul>
+                                                                </li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li class="">
+                                                                    <a href="@child.Url" title="@child.Title"><i class="fa fa-arrow-right"></i> <span>@child.Title</span></a>                                                                    
+                                                                </li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="">
+                                                    <a href="@item.Url" class="" title="@item.Name">
+                                                        <i class="fa fa-plus"></i> <span>@item.Name</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                        } 
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 hidden-xs ba_sidebar">
+                                @{Html.RenderAction("PostTop", "Partial", new { type = CategoryConst.CATEGORYPRODUCT });}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+}
+

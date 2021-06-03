@@ -1,0 +1,116 @@
+﻿@using System.Configuration
+@model DC.Webs.Models.HomeViewModel
+@{
+    ViewBag.Title = Model.ParameterInfo.MetaTitle;
+    ViewBag.MetaKeyword = Model.ParameterInfo.MetaKeyword;
+    ViewBag.MetaDescription = Model.ParameterInfo.MetaDescription;
+    ViewBag.Description = Model.ParameterInfo.MetaDescription;
+    ViewBag.ImageUrl = System.Configuration.ConfigurationManager.AppSettings["Website"] + "/Images/img-index.png";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="insMain">
+        <section id="insContactPage">
+            <div class="insBreadcrumb ">
+                <div class="container">
+                    <div class="breadcrumb-wrap">
+                        <ol class="breadcrumb breadcrumb-arrow hidden-sm hidden-xs">
+                            <li><a href="/" target="_self">@(Model.Language == "en" ? "Home" : "Accueil")</a></li>
+                            <li class="active"><span>@(Model.Language == "en" ? "Contact us" : "Contacter nous")</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="wrapperContactPage">
+                    <div class="headingPage">
+                        <h1 class="title">@(Model.Language == "en" ? "Contact us" : "Contacter nous")</h1>
+                    </div>
+                    <div class="contactList">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-xs-12 pull-left infoForm">
+                                <div class="wrapForm">
+                                    @*<h3 class="name-head">
+                                            <span>@(Model.Language == "en" ? "Do you need support? Please send us information" : "Avez-vous besoin de soutien? S'il vous plaît envoyez-nous des informations")</span>
+                                        </h3>*@
+                                    <form id="frmContact" enctype="multipart/form-data" action="/contact" class="contact-form" method="post">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <span class="ico"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                                                    <input required="" type="text" class="form-control input-lg" name="Name" placeholder="@(Model.Language == "en" ? "Your name" : "Votre nom et prénom")" value="" data-bind="value:Name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="ico"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control input-lg" name="Phone" placeholder="@(Model.Language == "en" ? "Your phone number" : "Votre téléphone portable")" value="" data-bind="value:Phone">
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="ico"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                                    <input type="text" name="Email" placeholder="@(Model.Language == "en" ? "Your Email" : "Votre émail")" class="form-control input-lg" value="" data-bind="value:Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="sr-only"></label>
+                                                    <textarea required="" rows="6" name="Content" class="form-control" placeholder="@(Model.Language == "en" ? "About you project" : "Votre projet")" data-bind="value:Content"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-xs-12">
+                                                <div class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings["Sitekey_CAPTCHA"]"></div>
+                                                @if (TempData["Success"] != null)
+                                                {
+                                                    <div class="alert alert-success" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <p>@(Model.Language == "en" ? "Your email was sent to Vietnam Travel Motorbike. We will answer you in 24h. Thank you very much and see you again!" : "Votre é – mail a été envoyé à Voyage Vietnam Moto. Nous allons vous y répondre en 24h. Merci beaucoup et à très bien tôt!")</p>
+                                                    </div>
+                                                }
+                                                <button type="button" data-bind="click:Submit" class="btn btn-outline">@(Model.Language == "en" ? "Send" : "Envoyer")</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12 pull-right infoText">
+                                <div class="wrap">
+                                    <h3 class="name-head">@(Model.Language == "en" ? "We are here" : "Nous sommes ici")</h3>
+                                    <p>@Model.ParameterInfo.CompanyName	</p>
+                                    <ul class="info-address">
+                                        <li>
+                                            <i class="glyphicon glyphicon-map-marker"></i>
+                                            <span>@Model.ParameterInfo.Address</span>
+                                        </li>
+                                        <li>
+                                            <i class="glyphicon glyphicon-envelope"></i>
+                                            <span>@Model.ParameterInfo.Email</span>
+                                        </li>
+                                        <li>
+                                            <i class="glyphicon glyphicon-phone-alt"></i>
+                                            <span>@Model.ParameterInfo.Phone</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+}
+<script type="text/javascript">
+    var data = @(Html.Raw(Json.Encode(Model)));
+</script>
+<script src="/Content/js/Contact.js"></script>
+<style>
+    .error-desc {
+        display: none;
+    }
+
+    .error {
+        border-color: red !important;
+    }
+</style>
